@@ -5,7 +5,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-    origin: "https://video-call-client-ten.vercel.app",
+    origin: "https://video-meet-client.vercel.app/",
     credentials: true,
 }));
 
@@ -15,7 +15,7 @@ const server = app.listen(8000);
 
 const io = new Server(server, {
     cors: {
-        origin: "https://video-call-client-ten.vercel.app",
+        origin: "https://video-meet-client.vercel.app/",
         credentials: true,
         methods: ["GET", "POST"]
     }
