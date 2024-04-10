@@ -12,17 +12,20 @@ export const useSocket=()=>{
 
 export const SocketProvider=(props)=>{
     const socket = useMemo(() => {
-        const options = {
-          // Explicitly set the version to match server-side (if known)
-          // or remove if version compatibility is uncertain
-          // version: '4', // Adjust based on server version
-          transports: ['websocket'], // Ensure only websocket transport is used
-          reconnection: true, // Enable reconnection attempts
-          reconnectionDelay: 1000, // Set reconnection delay in milliseconds
-          reconnectionAttempts: Infinity, // Attempt reconnection indefinitely
-        };
-        return io("https://video-meet-server-brown.vercel.app", options);
-      }, []);
+        const socket = io("https://video-meet-server-brown.vercel.app", {
+            transports: ["websocket"],
+            upgrade: false,
+            autoConnect: true,
+            reconnectionAttempts: 3,
+            timeout: 10000,
+        });
+
+        socket.on("connect_error", (error) => {
+            console.error("WebSocket connection error:", error);
+        });
+
+        return socket;
+    }, []);
     
 
     return(
