@@ -12,7 +12,7 @@ export const useSocket=()=>{
 
 export const SocketProvider=(props)=>{
     const socket = useMemo(() => {
-        const socket = io("https://video-meet-server-brown.vercel.app", {
+        const socket = io("http://localhost:8000", {
             transports: ["websocket"],
         });
 
