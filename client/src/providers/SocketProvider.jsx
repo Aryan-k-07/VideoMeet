@@ -17,7 +17,9 @@ export const SocketProvider=(props)=>{
         });
 
         socket.on("connect_error", (error) => {
-            console.log("WebSocket connection error:", error);
+            console.error("WebSocket connection error:", error);
+            // Log the error object directly
+            console.error("WebSocket connection error details:", error);
         });
 
         return socket;
