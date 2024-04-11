@@ -14,10 +14,6 @@ export const SocketProvider=(props)=>{
     const socket = useMemo(() => {
         const socket = io("https://video-meet-server-brown.vercel.app", {
             transports: ["websocket"],
-            upgrade: false,
-            autoConnect: true,
-            reconnectionAttempts: 3,
-            timeout: 10000,
         });
 
         socket.on("connect_error", (error) => {
