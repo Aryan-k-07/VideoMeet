@@ -34,8 +34,6 @@ function Lobby() {
         e.preventDefault();
         socket.emit("room:join", { email, room });
         // console.log(email,room);
-        // if(!tried) emailFromLobby=email;
-        // tried=true;
         emailFromLobby = email;
         // console.log("emailFromLobby",emailFromLobby);
         setEmail("")
@@ -43,10 +41,8 @@ function Lobby() {
     }
 
     function generateRandomId() {
-        // console.log(randomId);
         const randomRoomNumber=Math.floor(100000 + Math.random() * 900000);
         const randomRoomNumberString=randomRoomNumber.toString();
-        // setRoom(randomId);
         setRoom(randomRoomNumberString);
         // console.log(randomRoomNumberString.length);
     }
@@ -79,7 +75,6 @@ function Lobby() {
                             type="text"
                             id="room"
                             value={room}
-                            // readOnly={true}
                             onChange={(e) => setRoom(e.target.value)}
                         />
 
