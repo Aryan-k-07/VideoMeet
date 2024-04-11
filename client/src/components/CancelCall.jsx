@@ -5,7 +5,7 @@ function CancelCall() {
     const navigate=useNavigate();
 
     const backToLobby=useCallback(()=>{
-        navigate(`/lobby`);
+        navigate(`/`);
     },[navigate])
 
     return (
