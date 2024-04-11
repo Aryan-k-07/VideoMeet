@@ -12,7 +12,7 @@ export const useSocket=()=>{
 
 export const SocketProvider=(props)=>{
     const socket = useMemo(() => {
-        const socket = io("https://video-meet-server-qj1mxjprp-aryan-kshirsagars-projects.vercel.app", {
+        const socket = io("https://video-meet-server-brown.vercel.app", {
             transports: ["websocket"],
         });
 
